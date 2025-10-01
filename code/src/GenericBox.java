@@ -1,6 +1,13 @@
 public class GenericBox<T> {
     private T value;
 
+    public GenericBox(T value) {
+        this.value = value;
+    }
+
+    public GenericBox() {
+    }
+
     public void set(T value) {
         this.value = value;
     }
@@ -9,8 +16,17 @@ public class GenericBox<T> {
         return value;
     }
 
-    public static void main(String[] args) {
-        GenericBox<String> s = new GenericBox<>();
-        GenericBox<Integer> i = new GenericBox<>();
+    @Override
+    public String toString() {
+        return "GenericBox{" +
+                "value=" + value +
+                '}';
     }
+
+    public static void main(String[] args) {
+        GenericBox<String> s = new GenericBox<>("Hello, world!");
+        GenericBox<Integer> i = new GenericBox<>();
+        System.out.println(s);
+    }
+
 }
