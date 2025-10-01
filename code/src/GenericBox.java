@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class ArrayPrinter {
     public static <V> void printArray(V[] array) {
         for (V item : array) {
@@ -43,8 +46,15 @@ public class GenericBox<T> {
         ArrayPrinter.printArray(fruits);
         Integer[] ages = {1,2,3,4};
         ArrayPrinter.printArray(ages);
-        // Look into this
-//        GenericBox<String>[] gb = {s, t};
+
+        // This does not work because of "type erasure"
+        // Java removes generic type information at runtime but
+        // arrays need types at runtime.
+        // GenericBox<String>[] gb = {s, t};
+        // Instead, use Collections (but this will not work with our generic print method)
+        List<GenericBox<String>> gb = new ArrayList<>();
+        gb.add(s);
+        gb.add(t);
     }
 
 }
