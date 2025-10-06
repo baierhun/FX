@@ -18,12 +18,16 @@ public class HelloFX extends Application {
         // an example of a node that can be added to a scene
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello, FX!");
-            }
-        });
+//        btn.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                System.out.println("Hello, FX!");
+//            }
+//        });
+
+        EventHandler<ActionEvent> a = event -> System.out.println("Hello, FX!");
+
+        btn.setOnAction(event -> System.out.println("Hello, FX!"));
 
         root.getChildren().add(btn);
 
